@@ -112,61 +112,68 @@ func main() {
 	//arrays
 
 	var y [5]int
-	y[4]=100
-	fmt.Println("set:" , y)
+	y[4] = 100
+	fmt.Println("set:", y)
 	fmt.Println("get:", y[4])
 	var x [5]string
 	fmt.Println("emp:", x)
 	var w [5]bool
 	fmt.Println("emp:", w)
 
-	v:= [5]int{1,2,3,4,5,}
+	v := [5]int{1, 2, 3, 4, 5}
 	fmt.Println(v)
-	t:= [...]int{1,2,3,4,5,}
+	t := [...]int{1, 2, 3, 4, 5}
 	fmt.Println(t)
-	s:= [...]int{1,5:50,}
+	s := [...]int{1, 5: 50}
 	fmt.Println(s)
 
-	var twoD[2][3] int
+	var twoD [2][3]int
 	for i := 0; i < len(twoD); i++ {
 		for j := 0; j < len(twoD[0]); j++ {
-			twoD[i][j]=i+j
+			twoD[i][j] = i + j
 		}
 	}
 
 	fmt.Println(twoD)
 
-
 	//Slices
 
-	var m[] string
-	fmt.Println("unint:",m,m==nil,len(m)==0)
+	var m []string
+	fmt.Println("unint:", m, m == nil, len(m) == 0)
 
-	m=make([]string, 10,11)
-	fmt.Println("emp:",m,"len:",len(m),"cap:",cap(m))
-	
-	m=append(m,"a","b","c","d")
+	m = make([]string, 10, 11)
+	fmt.Println("emp:", m, "len:", len(m), "cap:", cap(m))
+
+	m = append(m, "a", "b", "c", "d")
 	fmt.Println(m)
-	fmt.Println("emp:",m,"len:",len(m),"cap:",cap(m))
-	
-	o:=make([]string,len(m))
-	copy(o,m)
-	fmt.Println("emp:",o,"len:",len(o),"cap:",cap(o))
-	
+	fmt.Println("emp:", m, "len:", len(m), "cap:", cap(m))
 
-
+	o := make([]string, len(m))
+	copy(o, m)
+	fmt.Println("emp:", o, "len:", len(o), "cap:", cap(o))
 
 	//Maps
 
-	var _map=make(map[string]int)
-	_map["1"]=1;
-	_map["2"]=2;
-	_,prss:=_map["2"]
+	var _map = make(map[string]int)
+	_map["1"] = 1
+	_map["2"] = 2
+	_, prss := _map["2"]
 	fmt.Println(prss)
-	_,prs:=_map["3"]
+	_, prs := _map["3"]
 	fmt.Println(prs)
 
 	fmt.Println(_map)
 
+	//Functions
+	fmt.Println(plus(2, 3))
+	fmt.Println(plusPlus(2, 3,5))
 
+}
+
+func plus(a int, b int) int {
+	return a + b
+}
+
+func plusPlus(a,b,c int)int{
+	return a+b+c
 }
