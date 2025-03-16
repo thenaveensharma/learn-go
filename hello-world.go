@@ -153,4 +153,20 @@ func main() {
 	copy(o,m)
 	fmt.Println("emp:",o,"len:",len(o),"cap:",cap(o))
 	
+
+
+
+	//Maps
+
+	var _map=make(map[string]int)
+	_map["1"]=1;
+	_map["2"]=2;
+	_,prss:=_map["2"]
+	fmt.Println(prss)
+	_,prs:=_map["3"]
+	fmt.Println(prs)
+
+	fmt.Println(_map)
+
+
 }
