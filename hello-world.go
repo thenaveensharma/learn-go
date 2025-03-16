@@ -138,4 +138,19 @@ func main() {
 
 
 	//Slices
+
+	var m[] string
+	fmt.Println("unint:",m,m==nil,len(m)==0)
+
+	m=make([]string, 10,11)
+	fmt.Println("emp:",m,"len:",len(m),"cap:",cap(m))
+	
+	m=append(m,"a","b","c","d")
+	fmt.Println(m)
+	fmt.Println("emp:",m,"len:",len(m),"cap:",cap(m))
+	
+	o:=make([]string,len(m))
+	copy(o,m)
+	fmt.Println("emp:",o,"len:",len(o),"cap:",cap(o))
+	
 }
