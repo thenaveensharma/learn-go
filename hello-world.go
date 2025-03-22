@@ -188,6 +188,28 @@ func main() {
 	nextInts := intSec()
 	fmt.Println(nextInts())
 
+	// Recursion
+	fmt.Println(findFactorial(10))
+
+	// Find fibonacci number
+	var fib func(n int) int
+	fib = func(n int) int {
+		if n < 2 {
+			return n
+
+		}
+		return fib(n-1) + fib(n-2)
+	}
+	fmt.Println(fib(10))
+}
+
+// find Factorial of a number
+func findFactorial(n int) int {
+	if n == 0 {
+		return 1
+	}
+
+	return n * findFactorial(n-1)
 }
 
 func intSec() func() int {
