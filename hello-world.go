@@ -166,7 +166,14 @@ func main() {
 
 	//Functions
 	fmt.Println(plus(2, 3))
-	fmt.Println(plusPlus(2, 3,5))
+	fmt.Println(plusPlus(2, 3, 5))
+
+	// Multiple return value
+
+	fmt.Println(returnMulValues())
+
+	// Variadic Functions
+
 
 }
 
@@ -174,6 +181,12 @@ func plus(a int, b int) int {
 	return a + b
 }
 
-func plusPlus(a,b,c int)int{
-	return a+b+c
+func plusPlus(a, b, c int) int {
+	return a + b + c
 }
+
+func returnMulValues() (int, string) {
+
+	return 1, "naveen"
+}
+
