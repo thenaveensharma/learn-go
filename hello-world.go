@@ -201,6 +201,24 @@ func main() {
 		return fib(n-1) + fib(n-2)
 	}
 	fmt.Println(fib(10))
+
+	//Range over Build-in Types
+
+	numbers := []int{1, 2, 3, 4, 5}
+	sum := 0
+	for index, num := range numbers {
+		sum += num
+		fmt.Print(index, sum, " ")
+	}
+	kvs := map[string]string{"a": "apple", "b": "ball"}
+	for k, v := range kvs {
+		fmt.Printf("%s -> %s\n", k, v)
+	}
+
+	for i, c := range "naveen" {
+		fmt.Println(i, c)
+	}
+
 }
 
 // find Factorial of a number
