@@ -178,6 +178,25 @@ func main() {
 	sum(1, 2, 3)
 	nums := []int{1, 2, 3, 4}
 	sum(nums...)
+
+	// Closures
+	nextInt := intSec()
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+	nextInts := intSec()
+	fmt.Println(nextInts())
+
+}
+
+func intSec() func() int {
+	i := 0
+	return func() int {
+		i++
+		return i
+	}
+
 }
 
 func plus(a int, b int) int {
