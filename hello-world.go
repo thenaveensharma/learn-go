@@ -174,7 +174,10 @@ func main() {
 
 	// Variadic Functions
 
-
+	sum(1, 2)
+	sum(1, 2, 3)
+	nums := []int{1, 2, 3, 4}
+	sum(nums...)
 }
 
 func plus(a int, b int) int {
@@ -190,3 +193,12 @@ func returnMulValues() (int, string) {
 	return 1, "naveen"
 }
 
+func sum(nums ...int) {
+
+	fmt.Print(nums, " ")
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	fmt.Println(total)
+}
