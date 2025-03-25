@@ -219,6 +219,25 @@ func main() {
 		fmt.Println(i, c)
 	}
 
+	//Pointers
+
+	val := 1
+	fmt.Println("inital", val)
+	zeroVal(val)
+	fmt.Println("zeroVal", val)
+	ptr := 1
+	fmt.Println("inital", ptr)
+	zeroPointer(&ptr)
+	fmt.Println("zeroVal", ptr)
+	fmt.Println("pointer", &ptr)
+
+}
+
+func zeroVal(a int) {
+	a = 0
+}
+func zeroPointer(a *int) {
+	*a = 0
 }
 
 // find Factorial of a number
