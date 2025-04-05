@@ -247,11 +247,43 @@ func main() {
 	fmt.Println("\nUsing DecodeRuneInString")
 
 	for i, w := 0, 0; i < len(anString); i += w {
-        runeValue, width := utf8.DecodeRuneInString(anString[i:])
-        fmt.Printf("%#U starts at %d\n", runeValue, i)
-        w = width
+		runeValue, width := utf8.DecodeRuneInString(anString[i:])
+		fmt.Printf("%#U starts at %d\n", runeValue, i)
+		w = width
 		examineRune(runeValue)
 	}
+
+	//Structs
+	fmt.Println(person{name: "bol", age: 20})
+	fmt.Println(person{name: "Alice", age: 21})
+	fmt.Println(&person{name: "Naveen"})
+	fmt.Println(newPerson("Nik"))
+
+	randomP := person{name: "Random", age: 40}
+	fmt.Println(randomP)
+	fmt.Println(randomP.name, randomP.age)
+	randomP.age = 18
+	fmt.Println(randomP.name, randomP.age)
+
+	dog := struct {
+		name   string
+		isGood bool
+	}{
+		"Alex",
+		true,
+	}
+	fmt.Println(dog)
+}
+
+type person struct {
+	name string
+	age  int
+}
+
+func newPerson(name string) *person {
+	p := person{name: name}
+	p.age = 42
+	return &p
 }
 func examineRune(r rune) {
 	if r == 't' {
