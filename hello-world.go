@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"unicode/utf8"
 )
 
 func main() {
@@ -231,6 +232,33 @@ func main() {
 	fmt.Println("zeroVal", ptr)
 	fmt.Println("pointer", &ptr)
 
+	const anString = "Hello Naveen"
+
+	for i := range len(anString) {
+		fmt.Printf("%x ", anString[i])
+	}
+	fmt.Println()
+
+	fmt.Println("Rune count: ", utf8.RuneCountInString(anString))
+
+	for idx, runeValue := range anString {
+		fmt.Printf("%#U starts at %d\n", runeValue, idx)
+	}
+	fmt.Println("\nUsing DecodeRuneInString")
+
+	for i, w := 0, 0; i < len(anString); i += w {
+        runeValue, width := utf8.DecodeRuneInString(anString[i:])
+        fmt.Printf("%#U starts at %d\n", runeValue, i)
+        w = width
+		examineRune(runeValue)
+	}
+}
+func examineRune(r rune) {
+	if r == 't' {
+		fmt.Println("found tee")
+	} else if r == 'e' {
+		fmt.Println(("found e"))
+	}
 }
 
 func zeroVal(a int) {
