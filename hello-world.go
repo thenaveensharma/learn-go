@@ -296,7 +296,36 @@ func main() {
 	fmt.Println(ns)
 	ns2 := transition(ns)
 	fmt.Println(ns2)
+	// Struct Embedding
 
+	co := container{
+		base: base{
+			num: 1,
+		},
+		str: "Naveen",
+	}
+	fmt.Printf("co={num: %v, str: %v}\n", co.num, co.str)
+	fmt.Println("also num:", co.base.num)
+	fmt.Println("describe: ", co.describe())
+
+	type describer interface {
+		describe() string
+	}
+	var de describer = co
+	fmt.Println("describer:", de.describe())
+}
+
+type base struct {
+	num int
+}
+
+func (b base) describe() string {
+	return fmt.Sprintf("base with num=%v", b.num)
+}
+
+type container struct {
+	base
+	str string
 }
 
 type ServerState int
